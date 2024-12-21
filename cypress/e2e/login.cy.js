@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Teste de Login', () => {
     const baseUrl = 'https://www.saucedemo.com/v1/';
   
