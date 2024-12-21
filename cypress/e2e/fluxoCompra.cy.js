@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-describe('Teste da remoção do produto', () => {
-    it('Deve remover um produto ao carrinho com sucesso', () => {
+describe('Teste do fluxo da compra', () => {
+    it('Deve adicionar um produto ao carrinho com sucesso', () => {
       
         // Acessa a página de produtos
       cy.visit('https://www.saucedemo.com/v1/');
@@ -21,15 +21,14 @@ describe('Teste da remoção do produto', () => {
       // Verificar o carrinho
       cy.visit('https://www.saucedemo.com/v1/cart.html'); 
 
-      // Remover o produto do carrinho
-      cy.get('.cart_item').find('.btn_secondary').click();
-
-      // Verifica se o carrinho está vazio
-      cy.visit('https://www.saucedemo.com/v1/cart.html'); 
-  
+      // Fazer o checkout
+      cy.get('.btn_action').click();
+      cy.get('[data-test="firstName"]').type('Jefferson');
+      cy.get('[data-test="lastName"]').type('Helton');
+      cy.get('[data-test="postalCode"]').type('555555555');
+      cy.get('.btn_primary').click();
+      cy.get('.btn_action').click();
+    
     });
   });
-  
-
-
   
